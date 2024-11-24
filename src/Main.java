@@ -29,13 +29,14 @@ public class Main {
         employees.trierEmployeParNomDépartementEtGrade();
         //employees.supprimerEmploye(employee1);
 
-        /*------------------------------------------------------
+        /*============================================================
         Prosit 10 Testing
-         --------------------------------------------------------*/
+        =============================================================*/
+        System.out.println("==============================Testing Prosit 10 ===================================");
         DepartementHashSet departementManager = new DepartementHashSet();
 
         Departement dep1 = new Departement(1, "HR",200);
-        Departement dep2 = new Departement(2, "Finance",120);
+        Departement dep2 = new Departement(2, "Financial",120);
         Departement dep3 = new Departement(3, "IT",300);
 
 
@@ -53,7 +54,7 @@ public class Main {
         Search for a department by name
         -------------------------------------------------------- */
         System.out.println("/*-------------------------------\n Searching for departement by Name \n ---------------------------*/");
-        System.out.println(departementManager.rechercherDepartement("Finance"));
+        System.out.println(departementManager.rechercherDepartement("Financial"));
 
         /*------------------------------------------------
         Remove a department
@@ -70,11 +71,55 @@ public class Main {
         for (Departement d : sortedDepartments) {
             System.out.println(d);
         }
+        /*=======================================================
+        Prosit 11 Testing
+        =========================================================*/
+        System.out.println("==============================Testing Prosit 11 ===================================");
+        AffectationHashMap gestionAffectations = new AffectationHashMap();
+
+        Employee employe1 = new Employee(1, "Alice", "Doe", "HR", 25);
+        Employee employe2 = new Employee(2, "Bob", "Smith", "IT", 30);
+
+        Departement depHR = new Departement(1, "HR", 200);
+        Departement depFinancial = new Departement(2, "Financial", 100);
 
 
-        
-        
-        
+        /*-----------------------------------------------------------
+          Affectation of Departements to Employees
+         ------------------------------------------------------------*/
+        System.out.println("/*-------------------------------------\n Affectation of Departements to Employees\n----------------------------------------------------*/");
+        gestionAffectations.ajouterEmployeDepartement(employe1, depHR);
+        gestionAffectations.ajouterEmployeDepartement(employe2, depFinancial);
+        gestionAffectations.afficherEmployesEtDepartements();
+
+        /*------------------------------------------------------------
+        Affectation of the same Employee to another Departement
+         --------------------------------------------------------------*/
+        System.out.println("/*---------------------------------------\nAffectation of the same Employee to another Departement\n-----------------------------------*/");
+        gestionAffectations.ajouterEmployeDepartement(employe1, depFinancial);
+        gestionAffectations.afficherEmployesEtDepartements();
+
+        /*-----------------------------------------------------------
+        Display the Map after the recent Affectation
+        ------------------------------------------------------------- */
+        System.out.println("/*----------------------------\nDisplay the Map after the recent Affectation \n------------------------------------*/");
+        gestionAffectations.afficherEmployesEtDepartements();
+
+        /*-------------------------------------------------------------------------------------
+        Observation For Instruction 3 Affectation of the same Employee to another Departement:
+         During the first assignment:
+           Each employee is correctly associated with their department.
+           After adding the same employee (employe1) to another department (depFinancial):
+           The HashMap replaces the previous department associated with the employee with the new one.
+           This means an employee can only be linked to one department at a time.
+        ---------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
 
     }
 }

@@ -43,11 +43,17 @@ public class SocieteArrayList  implements IGestion<Employee> {
     @Override
     public void trierEmployeParId() {
         Collections.sort(employees);
+        for (Employee emp : employees) {
+            System.out.println(emp);
+        }
 
     }
 
     @Override
     public void trierEmployeParNomDépartementEtGrade() {
         Collections.sort(employees,new Employee());
+        for (Employee emp : employees) {
+            System.out.println(emp);
+        }
     }
 }
